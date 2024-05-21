@@ -13,8 +13,8 @@ OBJS    := objs/main.o objs/rcc.o objs/gpio.o
 build: $(PROJECT_NAME).elf
 
 $(PROJECT_NAME).elf: $(OBJS)
-	arm-none-eabi-gcc $(CFLAGS) $(LDFLAGS) -o $(PROJECT_NAME).elf $(OBJS)
-	arm-none-eabi-objcopy -O binary $(PROJECT_NAME).elf $(PROJECT_NAME).bin
+	arm-none-eabi-gcc $(CFLAGS) $(LDFLAGS) -o bin/$(PROJECT_NAME) $(OBJS)
+	arm-none-eabi-objcopy -O binary bin/$(PROJECT_NAME) bin/$(PROJECT_NAME).bin
 
 objs/%.o: src/%.c
 	arm-none-eabi-gcc $(CFLAGS) -c $< -o $@
